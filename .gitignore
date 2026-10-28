@@ -1,0 +1,6 @@
+node_modules/
+nights/
+*.log
+.venv/
+voices/
+__pycache__/

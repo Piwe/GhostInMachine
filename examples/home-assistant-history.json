@@ -1,0 +1,175 @@
+[
+ [
+  {
+   "entity_id": "sensor.bedroom_temperature",
+   "state": "19.4",
+   "last_changed": "2026-10-30T22:00:00+02:00",
+   "attributes": {
+    "unit_of_measurement": "°C",
+    "friendly_name": "Bedroom temperature"
+   }
+  },
+  {
+   "entity_id": "binary_sensor.bed_occupancy",
+   "state": "on",
+   "last_changed": "2026-10-30T22:14:09+02:00",
+   "attributes": {
+    "friendly_name": "Bed occupancy"
+   }
+  },
+  {
+   "entity_id": "light.hallway",
+   "state": "off",
+   "last_changed": "2026-10-30T22:15:00+02:00",
+   "attributes": {
+    "friendly_name": "Hallway"
+   }
+  },
+  {
+   "entity_id": "binary_sensor.front_door_vibration",
+   "state": "on",
+   "last_changed": "2026-10-30T23:41:02+02:00",
+   "attributes": {
+    "friendly_name": "Front door knock"
+   }
+  },
+  {
+   "entity_id": "binary_sensor.back_door_vibration",
+   "state": "on",
+   "last_changed": "2026-10-30T23:41:02+02:00",
+   "attributes": {
+    "friendly_name": "Back door knock"
+   }
+  },
+  {
+   "entity_id": "binary_sensor.front_door_vibration",
+   "state": "off",
+   "last_changed": "2026-10-30T23:41:05+02:00",
+   "attributes": {}
+  },
+  {
+   "entity_id": "binary_sensor.back_door_vibration",
+   "state": "off",
+   "last_changed": "2026-10-30T23:41:05+02:00",
+   "attributes": {}
+  },
+  {
+   "entity_id": "sensor.bedroom_temperature",
+   "state": "19.1",
+   "last_changed": "2026-10-31T00:00:00+02:00",
+   "attributes": {
+    "unit_of_measurement": "°C"
+   }
+  },
+  {
+   "entity_id": "sensor.basement_co2",
+   "state": "1240",
+   "last_changed": "2026-10-31T01:12:40+02:00",
+   "attributes": {
+    "unit_of_measurement": "ppm",
+    "friendly_name": "Basement CO2"
+   }
+  },
+  {
+   "entity_id": "binary_sensor.basement_motion",
+   "state": "on",
+   "last_changed": "2026-10-31T01:13:02+02:00",
+   "attributes": {
+    "friendly_name": "Basement motion"
+   }
+  },
+  {
+   "entity_id": "binary_sensor.basement_motion",
+   "state": "off",
+   "last_changed": "2026-10-31T01:19:44+02:00",
+   "attributes": {}
+  },
+  {
+   "entity_id": "sensor.basement_co2",
+   "state": "2210",
+   "last_changed": "2026-10-31T01:30:00+02:00",
+   "attributes": {
+    "unit_of_measurement": "ppm"
+   }
+  },
+  {
+   "entity_id": "light.hallway",
+   "state": "on",
+   "last_changed": "2026-10-31T02:03:11+02:00",
+   "attributes": {
+    "friendly_name": "Hallway"
+   }
+  },
+  {
+   "entity_id": "light.hallway",
+   "state": "off",
+   "last_changed": "2026-10-31T02:03:12+02:00",
+   "attributes": {}
+  },
+  {
+   "entity_id": "light.hallway",
+   "state": "on",
+   "last_changed": "2026-10-31T02:03:13+02:00",
+   "attributes": {}
+  },
+  {
+   "entity_id": "light.hallway",
+   "state": "off",
+   "last_changed": "2026-10-31T02:03:16+02:00",
+   "attributes": {}
+  },
+  {
+   "entity_id": "binary_sensor.attic_motion",
+   "state": "on",
+   "last_changed": "2026-10-31T03:17:00+02:00",
+   "attributes": {
+    "friendly_name": "Attic motion"
+   }
+  },
+  {
+   "entity_id": "sensor.attic_temperature",
+   "state": "6.2",
+   "last_changed": "2026-10-31T03:18:30+02:00",
+   "attributes": {
+    "unit_of_measurement": "°C",
+    "friendly_name": "Attic temperature"
+   }
+  },
+  {
+   "entity_id": "binary_sensor.coop_door",
+   "state": "on",
+   "last_changed": "2026-10-31T03:40:51+02:00",
+   "attributes": {
+    "friendly_name": "Coop door"
+   }
+  },
+  {
+   "entity_id": "media_player.living_room_tv",
+   "state": "on",
+   "last_changed": "2026-10-31T04:02:00+02:00",
+   "attributes": {
+    "friendly_name": "Living room TV"
+   }
+  },
+  {
+   "entity_id": "media_player.living_room_tv",
+   "state": "off",
+   "last_changed": "2026-10-31T04:05:33+02:00",
+   "attributes": {}
+  },
+  {
+   "entity_id": "sensor.bedroom_temperature",
+   "state": "11.8",
+   "last_changed": "2026-10-31T04:20:00+02:00",
+   "attributes": {
+    "unit_of_measurement": "°C"
+   }
+  },
+  {
+   "entity_id": "binary_sensor.bed_occupancy",
+   "state": "off",
+   "last_changed": "2026-10-31T05:58:20+02:00",
+   "attributes": {}
+  }
+ ]
+]

@@ -1,0 +1,31 @@
+# Render Blueprint: New → Blueprint → pick this repo. See DEPLOY.md.
+services:
+  - type: web
+    name: ghost-in-the-machine
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node server.js
+    healthCheckPath: /healthz
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      # The free instance has no GPU and 512 MB of RAM: use the JS anomaly
+      # baseline here, and run TabPFN locally.
+      - key: GHOST_SCORER
+        value: logistic
+      - key: RATE_LIMIT_PER_HOUR
+        value: "30"
+      # Optional: where the open-weight narrator lives. Leave empty for the
+      # template narrator.
+      - key: GHOST_PROVIDER
+        sync: false
+      - key: GHOST_BASE_URL
+        sync: false
+      - key: GHOST_MODEL
+        sync: false
+      - key: GHOST_API_KEY
+        sync: false
+      # Optional: enables the ElevenLabs voice for visitors (spends your credits).
+      - key: ELEVENLABS_API_KEY
+        sync: false

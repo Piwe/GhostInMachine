@@ -1,0 +1,160 @@
+:root {
+  --bg: #0a0b0d;
+  --panel: #111317;
+  --line: #23272e;
+  --ink: #d9d4c7;
+  --muted: #8a877f;
+  --ghost: #9ff5c9;
+  --ember: #e0a458;
+  --danger: #e07a6a;
+  --serif: 'IM Fell English', Georgia, 'Times New Roman', serif;
+  --mono: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 15px/1.5 system-ui, sans-serif;
+}
+
+.masthead {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+  padding: 24px 24px 8px;
+}
+h1 {
+  margin: 0;
+  font: 400 clamp(28px, 5vw, 44px)/1.1 var(--serif);
+  letter-spacing: .02em;
+}
+.tagline { margin: 4px 0 0; color: var(--muted); font-family: var(--serif); font-style: italic; font-size: 17px; }
+.clock { text-align: right; font-family: var(--mono); }
+.clock span { display: block; font-size: 34px; color: var(--ghost); text-shadow: 0 0 12px rgba(159, 245, 201, .35); }
+.clock small { color: var(--muted); }
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 18px;
+  padding: 12px 24px;
+  border-block: 1px solid var(--line);
+}
+.controls label { display: flex; align-items: center; gap: 6px; color: var(--muted); font-size: 13px; }
+input, select, button {
+  font: inherit;
+  color: var(--ink);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 5px 8px;
+}
+input[type=range] { padding: 0; accent-color: var(--ghost); }
+input[type=checkbox] { accent-color: var(--ghost); }
+output { font-family: var(--mono); width: 2ch; color: var(--ink); }
+button { cursor: pointer; }
+button:disabled { opacity: .45; cursor: default; }
+button.primary { background: var(--ghost); color: #06110b; border-color: var(--ghost); font-weight: 600; padding: 6px 16px; }
+button:focus-visible, input:focus-visible, select:focus-visible { outline: 2px solid var(--ghost); outline-offset: 2px; }
+.file { cursor: pointer; text-decoration: underline dotted; }
+.file input { display: none; }
+
+.narrator { margin: 0; padding: 8px 24px; font-size: 13px; color: var(--muted); }
+.narrator.warn { color: var(--ember); }
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: 16px;
+  padding: 8px 24px 24px;
+}
+.panel { background: var(--panel); border: 1px solid var(--line); border-radius: 6px; min-width: 0; }
+
+/* House */
+#house { display: block; width: 100%; height: auto; border-radius: 6px 6px 0 0; }
+.zone .shape { fill: rgba(217, 212, 199, .03); stroke: #4a4f55; stroke-width: 1.5; transition: fill 1.2s, stroke 1.2s; }
+.zone path.shape:not([d$="Z"]) { fill: none; }
+.zone text { fill: var(--muted); font: 13px var(--serif); text-anchor: middle; transition: fill 1.2s; }
+.zone text.small { font-size: 11px; }
+.rail-sleepers, .stairs { stroke: #3a3e44; fill: none; }
+.zone.lit .shape { stroke: var(--ghost); fill: rgba(159, 245, 201, .16); filter: url(#glow); transition: none; }
+.zone.lit path.shape:not([d$="Z"]) { fill: none; }
+.zone.lit text { fill: var(--ghost); transition: none; }
+.zone.haunt .shape { stroke: var(--ember); }
+
+.transport { display: flex; gap: 12px; align-items: center; padding: 10px 14px; border-block: 1px solid var(--line); }
+.transport input { flex: 1; }
+
+.log {
+  list-style: none;
+  margin: 0;
+  padding: 8px 0;
+  height: 300px;
+  overflow: auto;
+  font: 12px/1.6 var(--mono);
+  position: relative; /* so each line's offsetTop is measured from the log itself */
+}
+.log li { padding: 0 14px; white-space: pre; color: #5d6168; }
+.log li.played { color: var(--muted); }
+.log li.anomaly.played { color: var(--ink); }
+.log li.current { background: rgba(159, 245, 201, .08); color: var(--ghost); }
+
+/* Story */
+.story-panel { padding: 28px clamp(18px, 4vw, 44px); max-height: calc(100vh - 40px); overflow: auto; position: sticky; top: 16px; align-self: start; }
+.story { font: 19px/1.65 var(--serif); max-width: 62ch; }
+.story h2 { font-weight: 400; font-size: 32px; line-height: 1.15; margin: 0 0 18px; color: #fff; }
+.story p { margin: 0 0 1em; }
+.story .placeholder { color: var(--muted); font-style: italic; }
+.story time {
+  font-family: var(--mono);
+  font-size: .78em;
+  color: var(--ghost);
+  border-bottom: 1px dotted currentColor;
+  cursor: pointer;
+}
+.story .cursor { display: inline-block; width: .5em; height: 1em; background: var(--ghost); vertical-align: -2px; animation: blink 1s steps(2) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+
+.foot { padding: 0 24px 24px; color: var(--muted); font-size: 12px; }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; padding: 8px 16px 16px; }
+  .story-panel { position: static; max-height: none; }
+  .masthead, .controls, .narrator, .foot { padding-inline: 16px; }
+  .log { height: 220px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .story .cursor { animation: none; }
+  .zone .shape, .zone text { transition: none; }
+}
+
+/* Guided tour */
+.zone.focus .shape { stroke: var(--ember); fill: rgba(224, 164, 88, .14); filter: url(#glow); }
+.zone.focus path.shape:not([d$="Z"]) { fill: none; }
+.zone.focus text { fill: var(--ember); }
+.tour {
+  padding: 14px 18px;
+  background: var(--bg);
+  border-top: 1px solid var(--line);
+  border-left: 3px solid var(--ember);
+}
+.tour h2 { margin: 0 0 6px; font: 400 22px/1.2 var(--serif); color: #fff; }
+.tour p { margin: 0; font: 16px/1.5 var(--serif); }
+.tour .tour-step { font: 11px var(--mono); color: var(--muted); letter-spacing: .08em; text-transform: uppercase; margin-bottom: 4px; }
+.tour-nav { display: flex; gap: 8px; margin-top: 12px; align-items: center; }
+button.link { background: none; border: none; color: var(--muted); text-decoration: underline; margin-left: auto; }
+.story a { color: var(--ghost); }
+
+/* Anomaly scores and narration */
+.status { display: flex; flex-wrap: wrap; gap: 0 24px; }
+.log li { border-left: 3px solid transparent; }
+.log li.played[data-score] { border-left-color: rgba(224, 164, 88, var(--score)); }
+.listen { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 20px; }
+.listen audio { width: 100%; height: 36px; }

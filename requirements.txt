@@ -1,0 +1,3 @@
+# Optional Python extras. The app runs without them, using its fallbacks.
+tabpfn>=9.2      # anomaly detection (open-weight; accept the licence, set TABPFN_TOKEN)
+piper-tts>=1.3   # offline open-source narration voice
