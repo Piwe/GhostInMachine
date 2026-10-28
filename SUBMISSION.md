@@ -33,7 +33,7 @@ Try a night yourself: `node cli.js --seed 1031 --date 2026-10-31 --voice piper`
 
 ## Code
 
-<!-- TODO: {% github your-username/ghost-in-the-machine %} -->
+{% github Piwe/GhostInMachine %}
 
 ## How I Built It
 
