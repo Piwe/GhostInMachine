@@ -25,7 +25,14 @@ The setting honours the past, too. Every haunting belongs to something that was 
 
 ## Demo
 
-<!-- TODO: screenshot or GIF of the web UI: the house diagram lighting up as the night replays, with the story streaming beside it, plus one stop of the guided tour -->
+![The night of 31 October replaying: the hall lights up as the stair sensor logs a climb that stops at step 6 of 12, and the story tells the same moment](https://raw.githubusercontent.com/Piwe/GhostInMachine/main/docs/screenshots/replay.png)
+*Seed 1031 replaying at 01:35. The stair pressure strips log a climb that stops halfway up, and the story beside the log tells the same moment. Lines flagged by the anomaly detector have an amber edge. This story came from the offline template narrator.*
+
+![A stop on the guided tour: the basement and the No. 3 drift running under the house](https://raw.githubusercontent.com/Piwe/GhostInMachine/main/docs/screenshots/tour.png)
+*The guided tour walks you round the grounds before the first night. Here it's the stop where the old mine runs under the house.*
+
+![The same night on a phone](https://raw.githubusercontent.com/Piwe/GhostInMachine/main/docs/screenshots/mobile.png)
+*The same night on a phone.*
 
 <!-- TODO: link the live site on your .tech domain -->
 
