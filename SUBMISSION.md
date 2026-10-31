@@ -34,7 +34,7 @@ The setting honours the past, too. Every haunting belongs to something that was 
 ![The same night on a phone](https://raw.githubusercontent.com/Piwe/GhostInMachine/main/docs/screenshots/mobile.png)
 *The same night on a phone.*
 
-**Live site: [ghost-in-the-machine-bwff.onrender.com](https://ghost-in-the-machine-bwff.onrender.com)** (free tier, so the first load can take up to a minute while it wakes). Render has no GPU, so the hosted version uses the template narrator and the JS baseline scorer. Gemma and TabPFN run when you start it locally.
+**Live site: [ghost-in-the-machine-bwff.onrender.com](https://ghost-in-the-machine-bwff.onrender.com)** (free tier, so the first load can take up to a minute while it wakes). Render has no GPU, so the hosted version calls Gemma 4 (`gemma-4-26b-a4b-it`) through Google AI Studio and scores with the JS baseline. Running it locally gives you Gemma through Ollama, plus TabPFN.
 
 Try a night yourself: `node cli.js --seed 1031 --date 2026-10-31 --voice piper`
 
@@ -81,7 +81,7 @@ Open models also make it hackable in the way a ghost story should be: swap in a 
 
 ## Prize Categories
 
-- **Best Use of Gemma**: Gemma 4 (`gemma4:e4b`) is the narrator, run locally.
+- **Best Use of Gemma**: Gemma 4 is the narrator: `gemma4:e4b` through Ollama when you run it locally, and `gemma-4-26b-a4b-it` through Google AI Studio on the live site.
 - **Best Use of TabPFN**: TabPFN is the anomaly detector that decides which readings are hauntings.
 - **Best Use of Render**: the web UI is deployed on Render at [ghost-in-the-machine-bwff.onrender.com](https://ghost-in-the-machine-bwff.onrender.com).
 - **Best Use of ElevenLabs**: <!-- only if you actually use it, e.g. for the demo video narration -->

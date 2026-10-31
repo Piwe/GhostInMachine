@@ -1,7 +1,9 @@
 // Streams a story from a locally running open-weight model.
 //   provider "ollama":  Ollama's native /api/chat (default http://localhost:11434)
 //   provider "openai":  any OpenAI-compatible server: llama.cpp's llama-server,
-//                       vLLM, LM Studio, LocalAI (default http://localhost:8080)
+//                       vLLM, LM Studio, LocalAI (default http://localhost:8080),
+//                       or a hosted one such as Google AI Studio's Gemma
+//                       (https://generativelanguage.googleapis.com/v1beta/openai)
 
 export const defaults = {
   provider: process.env.GHOST_PROVIDER || 'ollama',
@@ -19,9 +21,13 @@ function resolve(opts = {}) {
   return { provider, baseUrl, model: opts.model || defaults.model };
 }
 
+// OpenAI-compatible servers live under /v1, unless the base URL already names a
+// versioned path (Google's is /v1beta/openai).
+const openAiRoot = (baseUrl) => (/\/v\d+\w*(\/|$)/.test(new URL(baseUrl).pathname) ? baseUrl : `${baseUrl}/v1`);
+
 export async function listModels(opts) {
   const { provider, baseUrl } = resolve(opts);
-  const url = provider === 'ollama' ? `${baseUrl}/api/tags` : `${baseUrl}/v1/models`;
+  const url = provider === 'ollama' ? `${baseUrl}/api/tags` : `${openAiRoot(baseUrl)}/models`;
   const res = await fetch(url, { headers: authHeaders(), signal: AbortSignal.timeout(2500) });
   if (!res.ok) throw new Error(`${url} answered ${res.status}`);
   const body = await res.json();
@@ -35,7 +41,9 @@ export async function* streamStory(messages, opts = {}) {
 
   const [url, body] = provider === 'ollama'
     ? [`${baseUrl}/api/chat`, { model, messages, stream: true, options: { temperature, seed } }]
-    : [`${baseUrl}/v1/chat/completions`, { model, messages, stream: true, temperature, seed }];
+    // Google's endpoint rejects the unknown `seed` field.
+    : [`${openAiRoot(baseUrl)}/chat/completions`, { model, messages, stream: true, temperature,
+        seed: new URL(baseUrl).hostname.endsWith('googleapis.com') ? undefined : seed }];
 
   const res = await fetch(url, {
     method: 'POST',
@@ -68,7 +76,10 @@ function parseOllama(line) {
 function parseOpenAi(line) {
   const data = line.replace(/^data:\s*/, '').trim();
   if (!data || data === '[DONE]' || !line.startsWith('data:')) return '';
-  return JSON.parse(data).choices?.[0]?.delta?.content ?? '';
+  const delta = JSON.parse(data).choices?.[0]?.delta;
+  // Gemma 4 on Google AI Studio streams its thinking as content, flagged like this.
+  if (delta?.extra_content?.google?.thought) return '';
+  return delta?.content ?? '';
 }
 
 function numericSeed(seed) {

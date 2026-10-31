@@ -29,6 +29,7 @@ Render's free instances have no GPU, so the model runs somewhere else and the si
 | Option | Settings |
 |---|---|
 | Your own machine running Ollama, through a tunnel (e.g. `cloudflared tunnel --url http://localhost:11434`) | `GHOST_PROVIDER=ollama`, `GHOST_BASE_URL=<tunnel URL>`, `GHOST_MODEL=gemma4:e4b` |
+| Gemma 4 on Google AI Studio (what the live site uses; free key at <https://aistudio.google.com/apikey>) | `GHOST_PROVIDER=openai`, `GHOST_BASE_URL=https://generativelanguage.googleapis.com/v1beta/openai`, `GHOST_MODEL=gemma-4-26b-a4b-it`, `GHOST_API_KEY=<key>` |
 | A GPU server running llama.cpp `llama-server` or vLLM | `GHOST_PROVIDER=openai`, `GHOST_BASE_URL=<server URL>`, `GHOST_MODEL=<model name>`, `GHOST_API_KEY=<key>` |
 
 A quick tunnel is public: anyone with the URL can use your Ollama. Put it behind a key or shut it down after the demo.

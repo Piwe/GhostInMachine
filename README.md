@@ -4,7 +4,7 @@
 
 Built for the [DEV Hacktoberfest Open-Source AI Challenge: Ghost in the Machine](https://dev.to/devteam/join-the-hacktoberfest-open-source-ai-challenge-ghost-in-the-machine-2850-in-prizes-across-21-3cho).
 
-**Try it live: [ghost-in-the-machine-bwff.onrender.com](https://ghost-in-the-machine-bwff.onrender.com)**. It's on Render's free tier, so the first visit can take up to a minute to wake. The hosted site has no GPU, so it uses the fallbacks below (template narrator, JS anomaly baseline, browser voice). Run it locally for Gemma, TabPFN and Piper.
+**Try it live: [ghost-in-the-machine-bwff.onrender.com](https://ghost-in-the-machine-bwff.onrender.com)**. It's on Render's free tier, so the first visit can take up to a minute to wake. The hosted site has no GPU, so Gemma 4 runs through Google AI Studio and the rest uses the fallbacks below (JS anomaly baseline, browser voice). Run it locally for Gemma through Ollama, TabPFN and Piper.
 
 The house sits in the middle of a forest, behind the abandoned gold-mining town of Blackreef, opposite an old railway bed, next to a wartime military post and close to a deconsecrated Gothic church. Every night after sunset the church bells ring, someone knocks on the front and back doors at the same moment, picks strike rock under the basement, a steam train crosses where the rails were lifted in 1961, and a war is fought in the attic.
 
@@ -13,7 +13,7 @@ Every night, the smart home writes it all down. An anomaly detector picks out wh
 | Stage | Open tool | Fallback |
 |---|---|---|
 | Spot the anomalies | **[TabPFN](https://github.com/PriorLabs/TabPFN)**, an open-weight tabular foundation model | logistic-regression baseline in JS |
-| Tell the story | **[Gemma 4](https://ollama.com/library/gemma4)** (`gemma4:e4b`) via Ollama, or any open model behind an OpenAI-compatible server (llama.cpp, vLLM, LM Studio) | template narrator |
+| Tell the story | **[Gemma 4](https://ollama.com/library/gemma4)** (`gemma4:e4b`) via Ollama, or any open model behind an OpenAI-compatible server (llama.cpp, vLLM, LM Studio, Google AI Studio) | template narrator |
 | Read it aloud | **[Piper](https://github.com/OHF-Voice/piper1-gpl)**, offline neural TTS. Optional: ElevenLabs | the browser's speech synthesis |
 
 Every stage degrades gracefully, so the app always tells a story, even with nothing installed.
