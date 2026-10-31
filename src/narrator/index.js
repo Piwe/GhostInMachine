@@ -13,7 +13,9 @@ export async function* narrate(night, opts = {}) {
       if (provider === 'ollama' && !models.some((m) => m === model || m === `${model}:latest`)) {
         throw new Error(`model "${model}" is not pulled. Run: ollama pull ${model}`);
       }
-      yield { narrator: `${model} (${provider}, local)` };
+      const host = (opts.baseUrl || defaults.baseUrl) ? new URL(opts.baseUrl || defaults.baseUrl).hostname : 'localhost';
+      const where = /^(localhost|127\.|\[::1\])/.test(host) ? 'local' : 'hosted';
+      yield { narrator: `${model} (${provider}, ${where})` };
       yield* streamStory(buildMessages(night, opts), { ...opts, seed: night.seed ?? undefined });
       return;
     } catch (err) {
