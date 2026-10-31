@@ -1,6 +1,6 @@
 # Deploying to Render on a .tech domain
 
-The web UI is a single zero-dependency Node server, so it fits Render's free web service.
+The web UI is a single zero-dependency Node server, so it fits Render's free web service. The live instance is at <https://ghost-in-the-machine-bwff.onrender.com>.
 
 ## 1. Put the code on GitHub
 
@@ -19,6 +19,8 @@ gh repo create ghost-in-the-machine --public --source . --push
 4. When the deploy finishes, open `https://ghost-in-the-machine.onrender.com` (the exact URL is on the service page).
 
 Free instances sleep when idle; the first visit after a while takes ~30 seconds to wake. That's on brand.
+
+If you create the service from a public repo URL (or through the Render API) instead of connecting your GitHub account, Render isn't told about new pushes. Trigger a deploy from the dashboard (**Manual Deploy → Deploy latest commit**) after each change, or connect GitHub under **Settings → Build & Deploy**.
 
 ## 3. Give the hosted site a real narrator (optional)
 
