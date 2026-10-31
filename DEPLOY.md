@@ -1,4 +1,4 @@
-# Deploying to Render on a .tech domain
+# Deploying to Render
 
 The web UI is a single zero-dependency Node server, so it fits Render's free web service. The live instance is at <https://ghost-in-the-machine-bwff.onrender.com>.
 
@@ -32,12 +32,3 @@ Render's free instances have no GPU, so the model runs somewhere else and the si
 | A GPU server running llama.cpp `llama-server` or vLLM | `GHOST_PROVIDER=openai`, `GHOST_BASE_URL=<server URL>`, `GHOST_MODEL=<model name>`, `GHOST_API_KEY=<key>` |
 
 A quick tunnel is public: anyone with the URL can use your Ollama. Put it behind a key or shut it down after the demo.
-
-## 4. Point your .tech domain at it
-
-1. Claim the free first-year .tech domain at <https://hacktoberfest.com/my/promos> (it renews at $29.99/year).
-2. In Render: the service → **Settings → Custom Domains → Add**, enter `www.yourname.tech` (and `yourname.tech` if you want the bare domain). Render shows the DNS records it expects.
-3. In the .tech registrar's DNS manager, add exactly those records: a `CNAME` for `www` pointing to your `onrender.com` host, and for the bare domain the `A` record (or `ALIAS`/`ANAME`) Render lists.
-4. Back in Render, click **Verify**. HTTPS certificates are issued automatically once DNS propagates (minutes to a few hours).
-
-Link the .tech URL in your DEV post.

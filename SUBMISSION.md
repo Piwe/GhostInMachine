@@ -35,7 +35,6 @@ The setting honours the past, too. Every haunting belongs to something that was 
 *The same night on a phone.*
 
 **Live site: [ghost-in-the-machine-bwff.onrender.com](https://ghost-in-the-machine-bwff.onrender.com)** (free tier, so the first load can take up to a minute while it wakes). Render has no GPU, so the hosted version uses the template narrator and the JS baseline scorer. Gemma and TabPFN run when you start it locally.
-<!-- TODO: swap in the .tech domain once it's pointed at Render -->
 
 Try a night yourself: `node cli.js --seed 1031 --date 2026-10-31 --voice piper`
 
@@ -84,7 +83,7 @@ Open models also make it hackable in the way a ghost story should be: swap in a 
 
 - **Best Use of Gemma**: Gemma 4 (`gemma4:e4b`) is the narrator, run locally.
 - **Best Use of TabPFN**: TabPFN is the anomaly detector that decides which readings are hauntings.
-- **Best Use of Render** and **Best Use of a .tech Domain**: the web UI is deployed on Render at [ghost-in-the-machine-bwff.onrender.com](https://ghost-in-the-machine-bwff.onrender.com). <!-- TODO: .tech domain -->
+- **Best Use of Render**: the web UI is deployed on Render at [ghost-in-the-machine-bwff.onrender.com](https://ghost-in-the-machine-bwff.onrender.com).
 - **Best Use of ElevenLabs**: <!-- only if you actually use it, e.g. for the demo video narration -->
 
 <!-- Optional: embed the agent session that built this project. -->

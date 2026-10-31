@@ -132,7 +132,7 @@ Entity names are matched to rooms by keyword (`front_door` → porch, `bed_occup
 
 ## Deploy
 
-The web UI is live at [ghost-in-the-machine-bwff.onrender.com](https://ghost-in-the-machine-bwff.onrender.com). `render.yaml` deploys it to Render's free tier, and [DEPLOY.md](DEPLOY.md) covers putting it on a free .tech domain and pointing it at a hosted model.
+The web UI is live at [ghost-in-the-machine-bwff.onrender.com](https://ghost-in-the-machine-bwff.onrender.com). `render.yaml` deploys it to Render's free tier, and [DEPLOY.md](DEPLOY.md) covers setting it up and pointing it at a hosted model.
 
 ## Configuration
 
