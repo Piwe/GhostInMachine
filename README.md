@@ -68,7 +68,9 @@ node scripts/evaluate.js
 | Scorer | ROC AUC | Precision | Recall | F1 |
 |---|---|---|---|---|
 | Logistic baseline | 0.972 | 0.903 | 0.900 | 0.902 |
-| TabPFN | *run `scripts/evaluate.js` with `TABPFN_TOKEN` set* | | | |
+| TabPFN | 1.000 | 0.994 | 0.989 | 0.991 |
+
+15 unseen nights, 2,126 events, on CPU. TabPFN took about 2 minutes; the baseline takes 39 ms.
 
 `--scorer auto|tabpfn|logistic|none` picks one explicitly. `TABPFN_DEVICE=cuda` uses a GPU, and `TABPFN_ESTIMATORS` trades speed for accuracy (default 4).
 
