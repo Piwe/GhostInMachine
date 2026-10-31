@@ -34,7 +34,8 @@ The setting honours the past, too. Every haunting belongs to something that was 
 ![The same night on a phone](https://raw.githubusercontent.com/Piwe/GhostInMachine/main/docs/screenshots/mobile.png)
 *The same night on a phone.*
 
-<!-- TODO: link the live site on your .tech domain -->
+**Live site: [ghost-in-the-machine-bwff.onrender.com](https://ghost-in-the-machine-bwff.onrender.com)** (free tier, so the first load can take up to a minute while it wakes). Render has no GPU, so the hosted version uses the template narrator and the JS baseline scorer. Gemma and TabPFN run when you start it locally.
+<!-- TODO: swap in the .tech domain once it's pointed at Render -->
 
 Try a night yourself: `node cli.js --seed 1031 --date 2026-10-31 --voice piper`
 
@@ -69,7 +70,7 @@ sensor log ──▶ TabPFN ──▶ Gemma 4 ──▶ Piper ──▶ 🔊
 
 **Piper reads it aloud.** Open-source neural TTS, fully offline, slowed down a little and with times spoken as words. ElevenLabs is an optional upgrade; the browser's own voice is the fallback.
 
-**The web UI** is plain HTML, CSS and JavaScript around an SVG cross-section of the house. Rooms glow as their sensors fire during replay, anomalous lines glow amber in the log, and times in the story are clickable: they jump the replay to that moment. It's deployed on Render's free tier at <!-- TODO: your .tech domain -->.
+**The web UI** is plain HTML, CSS and JavaScript around an SVG cross-section of the house. Rooms glow as their sensors fire during replay, anomalous lines glow amber in the log, and times in the story are clickable: they jump the replay to that moment. It's deployed on Render's free tier at [ghost-in-the-machine-bwff.onrender.com](https://ghost-in-the-machine-bwff.onrender.com).
 
 **No npm dependencies.** Node 18+ for the app; Python only for TabPFN and Piper.
 
@@ -83,7 +84,7 @@ Open models also make it hackable in the way a ghost story should be: swap in a 
 
 - **Best Use of Gemma**: Gemma 4 (`gemma4:e4b`) is the narrator, run locally.
 - **Best Use of TabPFN**: TabPFN is the anomaly detector that decides which readings are hauntings.
-- **Best Use of Render** and **Best Use of a .tech Domain**: the web UI is deployed on Render at <!-- TODO -->.
+- **Best Use of Render** and **Best Use of a .tech Domain**: the web UI is deployed on Render at [ghost-in-the-machine-bwff.onrender.com](https://ghost-in-the-machine-bwff.onrender.com). <!-- TODO: .tech domain -->
 - **Best Use of ElevenLabs**: <!-- only if you actually use it, e.g. for the demo video narration -->
 
 <!-- Optional: embed the agent session that built this project. -->
